@@ -1,6 +1,7 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
-import "@nomiclabs/hardhat-waffle";
+import {HardhatUserConfig} from 'hardhat/config';
+import '@nomicfoundation/hardhat-toolbox';
+import '@nomiclabs/hardhat-waffle';
+import '@openzeppelin/hardhat-upgrades';
 
 const config: HardhatUserConfig = {
   solidity: {

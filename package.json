@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "npx hardhat clean",
+    "compile": "npx hardhat compile",
+    "node": "npx hardhat node",
+    "test": "npx hardhat test --parallel",
+    "solhint": "npx solhint contracts/**/*.sol",
+    "prettier": "npx prettier '**/*.{sol,md}' --write",
+    "done": "yarn clean && yarn prettier && yarn test"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +25,9 @@
     "@nomiclabs/hardhat-etherscan": "^3.0.0",
     "@nomiclabs/hardhat-solhint": "^2.0.1",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^4.7.1",
+    "@openzeppelin/contracts-upgradeable": "^4.7.1",
+    "@openzeppelin/hardhat-upgrades": "^1.19.0",
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
     "@types/chai": "^4.2.0",
