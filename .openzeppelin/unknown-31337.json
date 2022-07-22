@@ -1,0 +1,462 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "txHash": "0xceec8442db6cc3e503c9062c29c68b7a0546ffbe3e2e5e6d10c16a1e9b514fea"
+  },
+  "proxies": [
+    {
+      "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      "txHash": "0xe9abbd6411a4de66f4416ff57ee50cd8008a16306ac1cdd1922e06718c08b29c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      "txHash": "0xb61768429a49a68dd193a355cc16604326de8eb0a8253bae94d5bc825b91e005",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+      "txHash": "0xe04e15703576f7f31e6842606a8cd852d4c66414d0382a2fbfc64da8f2fa3663",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "txHash": "0x2c86db0b17872225869d83badd29697ee2a6d0781872ae7f40168fe73f1485d1",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "txHash": "0x53baa518ccbdfc1ec7cd4c3e367c113cb8aa10bfcc80767e2775f6b603323d32",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      "txHash": "0x6d51d0322ec7267708f62088bfa00867655b74be145d558ae77db57e0a30fa9d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      "txHash": "0x22cecf480265f9e94fec876d35d0fb4d2f61f76a48d3f0eb8dfa7a06ac849456",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9A676e781A523b5d0C0e43731313A708CB607508",
+      "txHash": "0x4ed06cabe9dd9f8a0346044d73f26d66789b377d828630b57bc6509556e0d715",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
+      "txHash": "0x330c1d1c3dfdfe78adbd267b4fc7b13db8675961b7223e9a31ebcc05603fe1b8",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
+      "txHash": "0x40a02b914c7ce6f197e5fb05d2bf9f8da9ce4118613ece6ca22461f0676f77f3",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "3b09da1ea5816e4c7d212e259f5c079c4c1a1177b794b88ddf93b945ea82c639": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "txHash": "0x0fecd3fff938b51138599e96ba87482abc445239354c3de32810869eadefc93b",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "greeting",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage",
+            "contract": "Greeting",
+            "src": "contracts/upgradable/Greeting.sol:8"
+          },
+          {
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage",
+            "contract": "Greeting",
+            "src": "contracts/upgradable/Greeting.sol:9"
+          },
+          {
+            "label": "dec",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "Greeting",
+            "src": "contracts/upgradable/Greeting.sol:10"
+          },
+          {
+            "label": "inc",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "Greeting",
+            "src": "contracts/upgradable/Greeting.sol:11"
+          },
+          {
+            "label": "items",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Item)595_storage)dyn_storage",
+            "contract": "Greeting",
+            "src": "contracts/upgradable/Greeting.sol:25"
+          },
+          {
+            "label": "lookup",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_string_memory_ptr,t_array(t_uint256)dyn_storage)",
+            "contract": "Greeting",
+            "src": "contracts/upgradable/Greeting.sol:26"
+          }
+        ],
+        "types": {
+          "t_array(t_struct(Item)595_storage)dyn_storage": {
+            "label": "struct Greeting.Item[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_string_memory_ptr,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(string => uint256[])",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Item)595_storage": {
+            "label": "struct Greeting.Item",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "isActive",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "701ec53f01dbb9d0aa74db9b68bc3d764ff3c465cdc86f37a9e1dc38adf916d3": {
+      "address": "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
+      "txHash": "0xf2382ea9edecdd0fc080c115f4137e0f4cbb98c3eaf2a128b8e90f22abcc329c",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "greeting",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage",
+            "contract": "GreetingV3",
+            "src": "contracts/upgradable/GreetingV3.sol:8"
+          },
+          {
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage",
+            "contract": "GreetingV3",
+            "src": "contracts/upgradable/GreetingV3.sol:10"
+          },
+          {
+            "label": "dec",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "GreetingV3",
+            "src": "contracts/upgradable/GreetingV3.sol:11"
+          },
+          {
+            "label": "inc",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "GreetingV3",
+            "src": "contracts/upgradable/GreetingV3.sol:12"
+          },
+          {
+            "label": "items",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Item)815_storage)dyn_storage",
+            "contract": "GreetingV3",
+            "src": "contracts/upgradable/GreetingV3.sol:26"
+          },
+          {
+            "label": "lookup",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_string_memory_ptr,t_array(t_uint256)dyn_storage)",
+            "contract": "GreetingV3",
+            "src": "contracts/upgradable/GreetingV3.sol:27"
+          }
+        ],
+        "types": {
+          "t_array(t_struct(Item)815_storage)dyn_storage": {
+            "label": "struct GreetingV3.Item[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_string_memory_ptr,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(string => uint256[])",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Item)815_storage": {
+            "label": "struct GreetingV3.Item",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "isActive",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "6a74567a2c7870d211945c117bb3e0e00697ea732be9f00a61acf508716b6c2d": {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "txHash": "0x6f9a5aee55da5f2ca47e290dc9bade9d70b3e7f5a5001c990907519ff643998b",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "greeting",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:8"
+          },
+          {
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:9"
+          },
+          {
+            "label": "dec",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:10"
+          },
+          {
+            "label": "inc",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:11"
+          },
+          {
+            "label": "items",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_struct(Item)699_storage)dyn_storage",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:29"
+          },
+          {
+            "label": "lookup",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_string_memory_ptr,t_array(t_uint256)dyn_storage)",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:30"
+          },
+          {
+            "label": "extra",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_uint256",
+            "contract": "GreetingV2",
+            "src": "contracts/upgradable/GreetingV2.sol:33"
+          }
+        ],
+        "types": {
+          "t_array(t_struct(Item)699_storage)dyn_storage": {
+            "label": "struct GreetingV2.Item[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_string_memory_ptr,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(string => uint256[])",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Item)699_storage": {
+            "label": "struct GreetingV2.Item",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "isActive",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}
