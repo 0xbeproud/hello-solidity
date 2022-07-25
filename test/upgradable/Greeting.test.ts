@@ -7,7 +7,11 @@ import {
     GreetingV2,
     GreetingV2__factory,
     GreetingV3,
-    GreetingV3__factory, GreetingV4, GreetingV4__factory, GreetingV5__factory, GreetingV6__factory,
+    GreetingV3__factory,
+    GreetingV4,
+    GreetingV4__factory,
+    GreetingV5__factory,
+    GreetingV6__factory,
 } from '../../typechain-types';
 
 describe('Upgradable', () => {
@@ -58,23 +62,23 @@ describe('Upgradable', () => {
     it('GreetingV4 - struct의 변수 삭제 한 경우', async () => {
         const ContractFactory = (await ethers.getContractFactory('GreetingV4')) as GreetingV4__factory;
         try {
-            await upgrades.upgradeProxy(greeting.address, ContractFactory)
-        }catch (e) {
-            expect(e, 'New storage layout is incompatible')
+            await upgrades.upgradeProxy(greeting.address, ContractFactory);
+        } catch (e) {
+            expect(e, 'New storage layout is incompatible');
         }
     });
 
     it('GreetingV5 - 사용하고 있는 struct에 변수 추가 하면 안됨', async () => {
         const ContractFactory = (await ethers.getContractFactory('GreetingV5')) as GreetingV5__factory;
         try {
-            await upgrades.upgradeProxy(greeting.address, ContractFactory)
-        }catch (e) {
-            expect(e, 'New storage layout is incompatible')
+            await upgrades.upgradeProxy(greeting.address, ContractFactory);
+        } catch (e) {
+            expect(e, 'New storage layout is incompatible');
         }
     });
 
     it('GreetingV6 - 사용하지 않는 struct에 변수 추가 가능', async () => {
         const ContractFactory = (await ethers.getContractFactory('GreetingV6')) as GreetingV6__factory;
-        expect(await upgrades.upgradeProxy(greeting.address, ContractFactory)).to.be.ok
+        expect(await upgrades.upgradeProxy(greeting.address, ContractFactory)).to.be.ok;
     });
 });

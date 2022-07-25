@@ -10,7 +10,7 @@ contract GreetingV2 is Initializable {
     uint256 public dec;
     uint256 public inc;
 
-    struct Unused{
+    struct Unused {
         uint256 id;
         string name;
         bool isActive;
@@ -24,7 +24,7 @@ contract GreetingV2 is Initializable {
 
     // diff: 여기 추가시 Inserted `extra`
     //  > New variables should be placed after all existing inherited variables
-//    uint256 public extra;
+    //    uint256 public extra;
 
     Item[] public items;
     mapping(string => uint256[]) lookup;
@@ -49,9 +49,9 @@ contract GreetingV2 is Initializable {
     }
 
     // diff: 여기 추가 OK. method는 위치 상관 없음.
-//    function setExtra(uint256 x) public {
-//        extra = x;
-//    }
+    //    function setExtra(uint256 x) public {
+    //        extra = x;
+    //    }
 
     function increment(uint256 x) public returns (uint256) {
         return inc = x + 1;

@@ -10,7 +10,7 @@ contract GreetingV4 is Initializable {
     uint256 public dec;
     uint256 public inc;
 
-    struct Unused{
+    struct Unused {
         uint256 id;
         string name;
         bool isActive;
@@ -20,7 +20,7 @@ contract GreetingV4 is Initializable {
         uint256 id;
         string name;
         // diff: 여기 삭제
-//        bool isActive;
+        //        bool isActive;
     }
 
     Item[] public items;

@@ -10,7 +10,7 @@ contract Greeting is Initializable {
     uint256 public dec;
     uint256 public inc;
 
-    struct Unused{
+    struct Unused {
         uint256 id;
         string name;
         bool isActive;

@@ -42,10 +42,7 @@ contract SimpleAuction {
     /// Create a simple auction with `biddingTime`
     /// seconds bidding time on behalf of the
     /// beneficiary address `beneficiaryAddress`.
-    constructor(
-        uint biddingTime,
-        address payable beneficiaryAddress
-    ) {
+    constructor(uint biddingTime, address payable beneficiaryAddress) {
         beneficiary = beneficiaryAddress;
         auctionEndTime = block.timestamp + biddingTime;
     }
@@ -63,16 +60,14 @@ contract SimpleAuction {
 
         // Revert the call if the bidding
         // period is over.
-        if (block.timestamp > auctionEndTime)
-            revert AuctionAlreadyEnded();
+        if (block.timestamp > auctionEndTime) revert AuctionAlreadyEnded();
 
         // If the bid is not higher, send the
         // money back (the revert statement
         // will revert all changes in this
         // function execution including
         // it having received the money).
-        if (msg.value <= highestBid)
-            revert BidNotHighEnough(highestBid);
+        if (msg.value <= highestBid) revert BidNotHighEnough(highestBid);
 
         if (highestBid != 0) {
             // Sending back the money by simply using
@@ -125,10 +120,8 @@ contract SimpleAuction {
         // external contracts.
 
         // 1. Conditions
-        if (block.timestamp < auctionEndTime)
-            revert AuctionNotYetEnded();
-        if (ended)
-            revert AuctionEndAlreadyCalled();
+        if (block.timestamp < auctionEndTime) revert AuctionNotYetEnded();
+        if (ended) revert AuctionEndAlreadyCalled();
 
         // 2. Effects
         ended = true;

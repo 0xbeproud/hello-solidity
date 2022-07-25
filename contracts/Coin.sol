@@ -13,8 +13,7 @@ contract Coin {
     // function balances(address account) external view returns (uint) {
     //    return balances[account];
     //}
-    mapping (address => uint) public balances;
-
+    mapping(address => uint) public balances;
 
     // Events allow clients to react to specific
     // contract changes you declare
@@ -42,10 +41,7 @@ contract Coin {
     // from any caller to an address
     function send(address receiver, uint amount) public {
         if (amount > balances[msg.sender])
-            revert InsufficientBalance({
-            requested: amount,
-            available: balances[msg.sender]
-            });
+            revert InsufficientBalance({requested: amount, available: balances[msg.sender]});
 
         balances[msg.sender] -= amount;
         balances[receiver] += amount;
