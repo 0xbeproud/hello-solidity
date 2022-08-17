@@ -12,4 +12,24 @@ contract RBAC is AccessControlEnumerable {
         _grantRole(ROLE_ADMIN, _msgSender());
         _grantRole(ROLE_MODERATOR, _msgSender());
     }
+
+    modifier onlyAdmin() {
+        _checkRole(ROLE_ADMIN);
+        _;
+    }
+
+    modifier onlyModerator() {
+        _checkRole(ROLE_ADMIN);
+        _checkRole(ROLE_MODERATOR);
+        _;
+    }
+
+    function addAdmin(address account) public virtual onlyAdmin {
+        _grantRole(ROLE_ADMIN, account);
+        _grantRole(ROLE_MODERATOR, account);
+    }
+
+    function addModerator(address account) public virtual onlyModerator {
+        _grantRole(ROLE_MODERATOR, account);
+    }
 }
