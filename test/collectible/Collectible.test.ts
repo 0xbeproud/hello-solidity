@@ -4,8 +4,8 @@ import {Collectible, Collectible__factory} from '../../typechain-types';
 import {expect} from 'chai';
 
 describe('Collectible', () => {
-    const name: string = 'hello contract';
-    const symbol: string = 'COLECTIBLE';
+    const name: string = 'be:theprooud';
+    const symbol: string = 'BEPROUD';
     const tokenURI: string = 'tokenURL';
 
     let sut: Collectible;
