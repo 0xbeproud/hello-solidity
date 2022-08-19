@@ -9,16 +9,18 @@ import "../access/RBACable.sol";
 // https://docs.alchemy.com/alchemy/road-to-web3/weekly-learning-challenges/1.-how-to-develop-an-nft-smart-contract-erc721-with-alchemy
 
 contract CollectibleGenerator is RBACable {
-    event Generate();
+    event Generate(string name, string symbol);
 
-    constructor(RBAC _rbac) RBACable(_rbac){
-        
-    };
+    constructor(RBAC _rbac) RBACable(_rbac) {}
 
-    function generate(string memory name, string memory symbol) public onlyAdmin returns (address) {
+    function generate(string memory name, string memory symbol) public adminOnly returns (address) {
         Collectible collectible = new Collectible(name, symbol);
 
-        emit Generate();
+        emit Generate(name, symbol);
         return address(collectible);
+    }
+
+    function doModerator() public moderatorOnly returns (address) {
+        return _msgSender();
     }
 }

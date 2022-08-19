@@ -13,23 +13,30 @@ contract RBAC is AccessControlEnumerable {
         _grantRole(ROLE_MODERATOR, _msgSender());
     }
 
-    modifier onlyAdmin() {
-        _checkRole(ROLE_ADMIN);
+    modifier adminOnly() {
+        require(isAdmin(_msgSender()), "Restricted to admin.");
         _;
     }
 
-    modifier onlyModerator() {
-        _checkRole(ROLE_ADMIN);
-        _checkRole(ROLE_MODERATOR);
+    modifier moderatorOnly() {
+        require(isModerator(_msgSender()), "Restricted to moderator.");
         _;
     }
 
-    function addAdmin(address account) public virtual onlyAdmin {
+    function addAdmin(address account) public virtual adminOnly {
         _grantRole(ROLE_ADMIN, account);
         _grantRole(ROLE_MODERATOR, account);
     }
 
-    function addModerator(address account) public virtual onlyModerator {
+    function addModerator(address account) public virtual moderatorOnly {
         _grantRole(ROLE_MODERATOR, account);
+    }
+
+    function isAdmin(address account) public view virtual returns (bool) {
+        return hasRole(ROLE_ADMIN, account);
+    }
+
+    function isModerator(address account) public view virtual returns (bool) {
+        return hasRole(ROLE_MODERATOR, account);
     }
 }
