@@ -24,11 +24,13 @@ describe('CollectibleGenerator', () => {
         );
         sut = (await CollectibleGeneratorContractFactory.deploy(RBACContract.address)) as CollectibleGenerator;
         await sut.deployed();
-
-        // const RBACContractFactory: Rbac
     });
 
     describe('generate', () => {
+        it('ok', async () => {
+            await sut.connect(admin).generate(name, symbol);
+        });
+
         it('ok', async () => {
             await sut.connect(admin).generate(name, symbol);
         });
