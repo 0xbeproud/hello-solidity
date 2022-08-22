@@ -13,14 +13,14 @@ contract Collectible is ERC721, ERC721URIStorage, ERC721Enumerable, ERC721Burnab
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
-    string private _baseURI;
+    string private _baseTokenURI;
 
     constructor(
         string memory name,
         string memory symbol,
         string memory baseURI
     ) ERC721(name, symbol) {
-        _baseURI = baseURI;
+        _baseTokenURI = baseURI;
     }
 
     function safeMint(address to, string memory uri) public onlyOwner {
@@ -35,7 +35,7 @@ contract Collectible is ERC721, ERC721URIStorage, ERC721Enumerable, ERC721Burnab
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
-        return _baseURI;
+        return _baseTokenURI;
     }
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
