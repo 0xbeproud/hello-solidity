@@ -16,7 +16,10 @@ const config: HardhatUserConfig = {
     networks: {
         localhost: {
             url: 'http://127.0.0.1:8545',
-            loggingEnabled: true,
+            loggingEnabled: false,
+            // allowUnlimitedContractSize: true,
+            // gas: 2100000,
+            // gasPrice: 8000000000,
         },
         // baobab: {
         //   chainId: 1001,
