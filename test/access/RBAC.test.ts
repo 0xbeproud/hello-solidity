@@ -20,6 +20,8 @@ describe('RBAC', () => {
         // admin 추가
         let tx = await sut.addAdmin(admin.address);
         await tx.wait();
+        tx = await sut.addModerator(moderator.address);
+        await tx.wait();
     });
 
     describe('construct', () => {
@@ -40,15 +42,35 @@ describe('RBAC', () => {
             // given, when, then
             await expect(sut.connect(notAdmin).addAdmin(user.address)).to.be.reverted;
         });
+    });
+
+    describe('isAdmin', () => {
+        it('ok', async () => {
+            // given, when, then
+            await expect(await sut.isAdmin(admin.address)).to.be.true;
+            await expect(await sut.isAdmin(moderator.address)).to.be.false;
+        });
+    });
+
+    describe('addModerator', () => {
+        it('ok', async () => {
+            // given, when, then
+            await expect(await sut.hasRole(sut.ROLE_MODERATOR(), moderator.address)).to.true;
+        });
 
         it('onlyModerator', async () => {
             // given, when, then
             await expect(sut.connect(notModerator).addModerator(user.address)).to.be.reverted;
         });
+    });
 
-        it('onlyModerator는 admin도 가능', async () => {
+    describe('isModerator', () => {
+        it('ok', async () => {
             // given, when, then
-            await expect(await sut.connect(admin).addModerator(user.address)).to.be.ok;
+            await expect(await sut.isModerator(admin.address)).to.be.true;
+            await expect(await sut.isModerator(moderator.address)).to.be.true;
+            await expect(await sut.isModerator(user.address)).to.be.false;
         });
     });
+
 });

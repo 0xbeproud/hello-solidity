@@ -1,6 +1,7 @@
 import {SignerWithAddress} from '@nomiclabs/hardhat-ethers/signers';
 import {ethers} from 'hardhat';
 import {CollectibleGenerator, CollectibleGenerator__factory, RBAC, RBAC__factory} from '../../typechain-types';
+import {expect} from "chai";
 
 describe('CollectibleGenerator', () => {
     const name: string = 'be:theprooud';
@@ -8,13 +9,15 @@ describe('CollectibleGenerator', () => {
 
     let owner: SignerWithAddress, admin: SignerWithAddress, moderator: SignerWithAddress, user: SignerWithAddress;
     let sut: CollectibleGenerator;
+    let RBACContract: RBAC
 
     beforeEach(async () => {
         [owner, admin, moderator, user] = await ethers.getSigners();
 
         const RBACContractFactory: RBAC__factory = await ethers.getContractFactory('RBAC');
-        const RBACContract: RBAC = await RBACContractFactory.deploy();
+        RBACContract = await RBACContractFactory.deploy();
         await RBACContract.deployed();
+
 
         const tx = await RBACContract.addAdmin(admin.address);
         await tx.wait();
@@ -28,11 +31,27 @@ describe('CollectibleGenerator', () => {
 
     describe('generate', () => {
         it('ok', async () => {
+            // given, when, then
             await sut.connect(admin).generate(name, symbol);
         });
 
-        it('ok', async () => {
+        it('adminOnly', async () => {
+            // given, when, then
             await sut.connect(admin).generate(name, symbol);
+            await expect(sut.connect(moderator).generate(name, symbol)).to.be.revertedWith('admin only allowed');
+        });
+    });
+
+    describe('doModeratorOnly', () => {
+        it('ok', async () => {
+            // given, when, then
+            await RBACContract.addModerator(moderator.address);
+            await sut.connect(moderator).doModeratorOnly();
+        });
+
+        it('admin도 moderatoryOnly 실행 가능', async () => {
+            // given, when, then
+            await sut.connect(admin).doModeratorOnly();
         });
     });
 });

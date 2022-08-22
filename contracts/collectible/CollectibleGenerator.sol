@@ -20,7 +20,7 @@ contract CollectibleGenerator is RBACable {
         return address(collectible);
     }
 
-    function doModerator() public moderatorOnly returns (address) {
+    function doModeratorOnly() public moderatorOnly returns (address) {
         return _msgSender();
     }
 }
