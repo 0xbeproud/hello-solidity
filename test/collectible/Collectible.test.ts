@@ -8,11 +8,11 @@ describe('Collectible', () => {
     const symbol: string = 'BEPROUD';
     const tokenURI: string = 'tokenURL';
 
+    let owner: SignerWithAddress, admin: SignerWithAddress, user: SignerWithAddress;
     let sut: Collectible;
-    let owner: SignerWithAddress, user: SignerWithAddress;
 
     beforeEach(async () => {
-        [owner, user] = await ethers.getSigners();
+        [owner, admin, user] = await ethers.getSigners();
 
         const CollectibleContractFactory: Collectible__factory = await ethers.getContractFactory('Collectible');
         sut = (await CollectibleContractFactory.deploy(name, symbol)) as Collectible;
@@ -21,7 +21,7 @@ describe('Collectible', () => {
 
     describe('mint', () => {
         it('ok', async () => {
-            let tx = await sut.safeMint(user.address, tokenURI);
+            let tx = await sut.connect(owner).safeMint(user.address, tokenURI);
             await tx.wait();
             await expect(await sut.balanceOf(user.address)).to.equals(1);
         });

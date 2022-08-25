@@ -11,7 +11,7 @@ import "../access/RBACable.sol";
 contract CollectibleGenerator is RBACable {
     event Generate(string name, string symbol);
 
-    constructor(RBAC _rbac) RBACable(_rbac) {}
+    constructor(RBAC rbac_) RBACable(rbac_) {}
 
     function generate(string memory name, string memory symbol) public adminOnly returns (address) {
         Collectible collectible = new Collectible(name, symbol);
