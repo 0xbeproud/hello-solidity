@@ -21,8 +21,8 @@ abstract contract RBACable is Context {
         _;
     }
 
-//    modifier minterOnly() {
-//        require(_rbac.isMinter(_msgSender()), "minter only allowed");
-//        _;
-//    }
+    //    modifier minterOnly() {
+    //        require(_rbac.isMinter(_msgSender()), "minter only allowed");
+    //        _;
+    //    }
 }
