@@ -5,7 +5,7 @@ import "./RBAC.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 
 abstract contract RBACable is Context {
-    RBAC private _rbac;
+    RBAC internal _rbac;
 
     constructor(RBAC rbac_) {
         _rbac = rbac_;
