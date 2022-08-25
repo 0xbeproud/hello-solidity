@@ -2,10 +2,12 @@ import {ethers} from 'hardhat';
 import {SignerWithAddress} from '@nomiclabs/hardhat-ethers/signers';
 import {Collectible, Collectible__factory} from '../../typechain-types';
 import {expect} from 'chai';
+import {token} from '../../typechain-types/@openzeppelin/contracts';
 
 describe('Collectible', () => {
     const name: string = 'be:theprooud';
     const symbol: string = 'BEPROUD';
+    const baseTokenURI: string = 'https://basetokenURI/';
     const tokenURI: string = 'tokenURL';
 
     let owner: SignerWithAddress, admin: SignerWithAddress, user: SignerWithAddress;
@@ -15,7 +17,7 @@ describe('Collectible', () => {
         [owner, admin, user] = await ethers.getSigners();
 
         const CollectibleContractFactory: Collectible__factory = await ethers.getContractFactory('Collectible');
-        sut = (await CollectibleContractFactory.deploy(name, symbol)) as Collectible;
+        sut = (await CollectibleContractFactory.deploy(name, symbol, baseTokenURI)) as Collectible;
         await sut.deployed();
     });
 
@@ -62,7 +64,7 @@ describe('Collectible', () => {
         it('ok', async () => {
             let tx = await sut.safeMint(user.address, tokenURI);
             await tx.wait();
-            await expect(await sut.tokenURI(0)).to.equals('https://example.com/nft/tokenURL');
+            await expect(await sut.tokenURI(0)).to.equals('https://basetokenURI/tokenURL');
         });
     });
 });

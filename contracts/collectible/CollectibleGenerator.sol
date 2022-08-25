@@ -11,16 +11,25 @@ import "../access/RBACable.sol";
 contract CollectibleGenerator is RBACable {
     event Generate(string name, string symbol);
 
-    constructor(RBAC rbac_) RBACable(rbac_) {}
+    address[] public collectibles;
 
-    function generate(string memory name, string memory symbol) public adminOnly returns (address) {
-        Collectible collectible = new Collectible(name, symbol);
+    constructor(RBAC _rbac) RBACable(_rbac) {}
+
+    function generate(string memory name, string memory symbol, string memory baseTokenURI) public adminOnly returns (address) {
+        Collectible collectible = new Collectible(name, symbol, baseTokenURI);
 
         emit Generate(name, symbol);
+
+        collectibles.push(address(collectible));
+
         return address(collectible);
     }
 
-    function doModerator() public moderatorOnly returns (address) {
+    function doModeratorOnly() public moderatorOnly returns (address) {
         return _msgSender();
+    }
+
+    function getCollectibles() public view returns (address[] memory) {
+        return collectibles;
     }
 }
